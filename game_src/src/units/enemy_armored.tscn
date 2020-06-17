@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/units/unit_template.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/units/enemy_armored.gd" type="Script" id=2]
+[ext_resource path="res://assets/img/enemy_armored.png" type="Texture" id=3]
+
+[node name="unit" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="unit_icon" parent="vbox" index="0"]
+margin_left = 0.0
+margin_right = 400.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 400, 400 )
+size_flags_vertical = 4
+texture = ExtResource( 3 )
+
+[node name="health_bar" parent="vbox" index="1"]
+margin_left = 100.0
+margin_top = 403.0
+margin_right = 300.0
+margin_bottom = 427.0

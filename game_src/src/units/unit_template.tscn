@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/units/unit.gd" type="Script" id=2]
+
+[node name="unit" type="Control"]
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="VBoxContainer" parent="."]
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/separation = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="unit_icon" type="TextureRect" parent="vbox"]
+margin_left = 100.0
+margin_right = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+expand = true
+stretch_mode = 1
+
+[node name="health_bar" type="ProgressBar" parent="vbox"]
+margin_top = 3.0
+margin_right = 200.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 200, 24 )
+size_flags_horizontal = 6
+size_flags_vertical = 4
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

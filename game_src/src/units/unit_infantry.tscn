@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/img/player_infantry.png" type="Texture" id=1]
+[ext_resource path="res://src/units/unit_template.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/units/unit_infantry.gd" type="Script" id=3]
+
+[node name="unit" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="unit_icon" parent="vbox" index="0"]
+margin_left = 293.0
+margin_top = 164.0
+margin_right = 693.0
+margin_bottom = 414.0
+rect_min_size = Vector2( 400, 250 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="health_bar" parent="vbox" index="1"]
+margin_left = 393.0
+margin_top = 417.0
+margin_right = 593.0
+margin_bottom = 441.0
