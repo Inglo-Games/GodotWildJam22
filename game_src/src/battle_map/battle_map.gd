@@ -14,21 +14,19 @@ func _ready():
 		unit.connect("unit_selected", self, "_on_unit_selected")
 	for unit in $enemy_units.get_children():
 		unit.connect("unit_selected", self, "_on_enemy_selected")
-
+	$bg.connect("gui_input", self, "map_input")
 
 # Get input on battle map
-func _gui_input(event):
+func map_input(event):
 	
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-		print("Got click...")
-		
+
 		# Handle unit movement
 		if player_turn and selected_unit != null:
-			print("Unit selected...")
 			
-			var dist = event.global_position.distance_to(selected_unit.rect_global_position)
+			var dist = event.position.distance_to(selected_unit.rect_position)
 			if selected_unit.can_move and dist <= selected_unit.move_range:
-				selected_unit.rect_global_position = event.global_position
+				selected_unit.rect_position = event.position
 				selected_unit.unit_moved()
 				draw_range_markers()
 
@@ -91,8 +89,12 @@ func draw_range_markers():
 
 
 func exec_ai_turn():
+	
+	# TODO: Implement enemy AI
 	for unit in $enemy_units.get_children():
-		# TODO: Implement enemy AI
-		pass
+		for target in $player_units.get_children():
+			if target.rect_global_position.distance_to(unit.rect_global_position) < unit.attack_range \
+						and unit.can_attack:
+				unit.attack_unit(target)
 	
 	player_turn = true
