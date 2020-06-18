@@ -8,7 +8,16 @@
 [ext_resource path="res://assets/img/attack_range_marker.png" type="Texture" id=6]
 
 [node name="map" type="Control"]
+margin_right = 32000.0
+margin_bottom = 16000.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,24 +56,28 @@ __meta__ = {
 }
 
 [node name="unit" parent="player_units" instance=ExtResource( 3 )]
-margin_left = -998.354
-margin_top = -376.234
-margin_right = -998.354
-margin_bottom = -376.234
+margin_left = 1807.45
+margin_top = 2158.04
+margin_right = 1807.45
+margin_bottom = 2158.04
 
 [node name="unit2" parent="player_units" instance=ExtResource( 3 )]
-margin_left = 611.203
-margin_top = 288.97
-margin_right = 611.203
-margin_bottom = 288.97
+margin_left = 3417.0
+margin_top = 2823.24
+margin_right = 3417.0
+margin_bottom = 2823.24
 
 [node name="unit3" parent="player_units" instance=ExtResource( 3 )]
-margin_left = 1157.62
-margin_top = -952.349
-margin_right = 1157.62
-margin_bottom = -952.349
+margin_left = 3963.42
+margin_top = 1581.92
+margin_right = 3963.42
+margin_bottom = 1581.92
 
 [node name="enemy_units" type="Control" parent="."]
+margin_left = 2805.8
+margin_top = 2534.27
+margin_right = 2805.8
+margin_bottom = 2534.27
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -83,9 +96,14 @@ margin_right = 442.243
 margin_bottom = -1168.69
 
 [node name="cam" type="Camera2D" parent="."]
+position = Vector2( 3278.37, 2093.03 )
 skew = 4.37114e-08
 current = true
 zoom = Vector2( 2, 2 )
+limit_left = 0
+limit_top = 0
+limit_right = 32000
+limit_bottom = 16000
 script = ExtResource( 4 )
 
 [node name="ui_layer" type="CanvasLayer" parent="."]
@@ -112,31 +130,4 @@ margin_top = 29.0
 margin_right = 156.0
 margin_bottom = 49.0
 text = "PAUSE"
-
-[node name="Label" type="Label" parent="ui_layer"]
-margin_left = 2.8316
-margin_top = 12.2704
-margin_right = 42.8316
-margin_bottom = 26.2704
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="ui_layer"]
-margin_left = 3.46657
-margin_top = 35.8672
-margin_right = 43.4666
-margin_bottom = 49.8672
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label3" type="Label" parent="ui_layer"]
-margin_left = 2.8316
-margin_top = 68.9028
-margin_right = 42.8316
-margin_bottom = 82.9028
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="button_up" from="ui_layer/vbox/end_turn_btn" to="." method="_on_end_turn_btn_up"]
