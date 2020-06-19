@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/battle_map/battle_map.gd" type="Script" id=1]
 [ext_resource path="res://src/units/enemy_armored.tscn" type="PackedScene" id=2]
@@ -6,18 +6,24 @@
 [ext_resource path="res://src/battle_map/camera_controller.gd" type="Script" id=4]
 [ext_resource path="res://assets/img/move_range_marker.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/attack_range_marker.png" type="Texture" id=6]
+[ext_resource path="res://assets/img/map_background.jpg" type="Texture" id=7]
+[ext_resource path="res://assets/battle_ui.theme" type="Theme" id=8]
 
 [node name="map" type="Control"]
-margin_right = 32000.0
-margin_bottom = 16000.0
+margin_left = -2078.7
+margin_top = 322.904
+margin_right = 7921.3
+margin_bottom = 10322.9
+theme = ExtResource( 8 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bg" type="ColorRect" parent="."]
+[node name="bg" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -51,52 +57,53 @@ __meta__ = {
 }
 
 [node name="player_units" type="Control" parent="."]
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="unit" parent="player_units" instance=ExtResource( 3 )]
-margin_left = 1807.45
-margin_top = 2158.04
-margin_right = 1807.45
-margin_bottom = 2158.04
+margin_left = 7446.67
+margin_top = 2162.09
+margin_right = 7446.67
+margin_bottom = 2162.09
 
 [node name="unit2" parent="player_units" instance=ExtResource( 3 )]
-margin_left = 3417.0
-margin_top = 2823.24
-margin_right = 3417.0
-margin_bottom = 2823.24
+margin_left = 7277.56
+margin_top = 3070.87
+margin_right = 7277.56
+margin_bottom = 3070.87
 
 [node name="unit3" parent="player_units" instance=ExtResource( 3 )]
-margin_left = 3963.42
-margin_top = 1581.92
-margin_right = 3963.42
-margin_bottom = 1581.92
+margin_left = 6521.89
+margin_top = 2693.53
+margin_right = 6521.89
+margin_bottom = 2693.53
 
 [node name="enemy_units" type="Control" parent="."]
 margin_left = 2805.8
 margin_top = 2534.27
 margin_right = 2805.8
 margin_bottom = 2534.27
-mouse_filter = 2
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="unit" parent="enemy_units" instance=ExtResource( 2 )]
-margin_left = -411.674
-margin_top = -594.903
-margin_right = -411.674
-margin_bottom = -594.903
+margin_left = 3867.96
+margin_top = -1610.84
+margin_right = 3867.96
+margin_bottom = -1610.84
 
 [node name="unit2" parent="enemy_units" instance=ExtResource( 2 )]
-margin_left = 442.243
-margin_top = -1168.69
-margin_right = 442.243
-margin_bottom = -1168.69
+margin_left = 4563.14
+margin_top = -1924.29
+margin_right = 4563.14
+margin_bottom = -1924.29
 
 [node name="cam" type="Camera2D" parent="."]
-position = Vector2( 3278.37, 2093.03 )
+position = Vector2( 7166.19, 2340.72 )
 skew = 4.37114e-08
 current = true
 zoom = Vector2( 2, 2 )
@@ -123,11 +130,15 @@ __meta__ = {
 [node name="end_turn_btn" type="Button" parent="ui_layer/vbox"]
 margin_right = 156.0
 margin_bottom = 20.0
+focus_mode = 0
+enabled_focus_mode = 0
 text = "END TURN"
 
 [node name="pause_btn" type="Button" parent="ui_layer/vbox"]
 margin_top = 29.0
 margin_right = 156.0
 margin_bottom = 49.0
+focus_mode = 0
+enabled_focus_mode = 0
 text = "PAUSE"
 [connection signal="button_up" from="ui_layer/vbox/end_turn_btn" to="." method="_on_end_turn_btn_up"]

@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/img/dog.png" type="Texture" id=1]
+[ext_resource path="res://assets/battle_ui.theme" type="Theme" id=2]
+[ext_resource path="res://assets/fonts/CFCrayons.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/dialog/dialog.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 56
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="dialog" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="portrait" type="TextureRect" parent="."]
+margin_left = 213.816
+margin_top = 484.649
+margin_right = 513.816
+margin_bottom = 884.649
+rect_min_size = Vector2( 300, 400 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_panel" type="Panel" parent="."]
+anchor_left = 0.1
+anchor_top = 0.8
+anchor_right = 0.9
+anchor_bottom = 1.0
+margin_bottom = -32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="text_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "This is some example text, please replace me or the player will be very confused"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name_panel" type="Panel" parent="."]
+margin_left = 266.0
+margin_top = 804.5
+margin_right = 466.0
+margin_bottom = 856.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="name_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "SPOT"
+align = 1
+valign = 1
+uppercase = true

@@ -1,5 +1,7 @@
 extends Control
 
+const ai_action_wait_time : float = 0.3		# Time to wait between AI moves
+
 var player_turn : bool = true
 var selected_unit : Unit = null
 
@@ -66,13 +68,18 @@ func _on_enemy_selected(unit):
 
 # Reset player's unit moves and trigger AI turn
 func _on_end_turn_btn_up():
+	
 	player_turn = false
 	selected_unit = null
 	move_marker.visible = false
 	attack_marker.visible = false
+	
 	exec_ai_turn()
+	
 	for unit in $player_units.get_children():
 		unit.reset_move_and_attack()
+	player_turn = true
+
 
 
 # Size and place markers showing player the move and attack ranges for the
@@ -90,11 +97,33 @@ func draw_range_markers():
 
 func exec_ai_turn():
 	
-	# TODO: Implement enemy AI
+	# Process move for each enemy unit
 	for unit in $enemy_units.get_children():
+		
+		# Determine weakest enemy unit
+		var weakest = $player_units.get_child(0)
 		for target in $player_units.get_children():
-			if target.rect_global_position.distance_to(unit.rect_global_position) < unit.attack_range \
-						and unit.can_attack:
-				unit.attack_unit(target)
+			if target.health < weakest.health:
+				weakest = target
+		
+		var unit_pos = unit.rect_global_position
+		var weakest_pos = weakest.rect_global_position
+		var dist = weakest_pos.distance_to(unit_pos)
+		
+		# Case 1: weakest enemy already in range
+		if dist <= unit.attack_range:
+			unit.attack_unit(weakest)
+			yield(get_tree().create_timer(ai_action_wait_time), "timeout")
+		
+		# Case 2: weakest enemy within range after one move
+		elif dist <= (unit.attack_range + unit.move_range):
+			unit.rect_global_position += unit_pos.direction_to(weakest_pos) * unit.move_range
+			yield(get_tree().create_timer(ai_action_wait_time), "timeout")
+			unit.attack_unit(weakest)
+			yield(get_tree().create_timer(ai_action_wait_time), "timeout")
+		
+		# TODO: Add more AI
 	
-	player_turn = true
+	# Reset move and attack flags for next round
+	for unit in $enemy_units.get_children():
+		unit.reset_move_and_attack()
