@@ -21,6 +21,8 @@ func _gui_input(event):
 # Load dialogue scene from given JSON file
 func load_script_file(filepath):
 	
+	current_line = -1
+	
 	var file = File.new()
 	if file.file_exists(filepath):
 		file.open(filepath, 1)
