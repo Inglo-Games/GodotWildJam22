@@ -1,0 +1,32 @@
+[
+	{
+		"character": "dog",
+		"text": "Excellent work General."
+	},
+	
+	{
+		"character": "dog",
+		"text": "Now let's learn about different unit types."
+	},
+	
+	{
+		"character": "dog",
+		"text": "The units with an X, like the ones from last time, are infantry.  They're the basic units."
+	},
+	
+	{
+		"character": "fish",
+		"text": "The units with an oval are tanks, like me!  We don't move as fast but we pack a bigger punch."
+	},
+	
+	{
+		"character": "dog",
+		"text": "The unit with a filled circle is artillery.  They are very fragile but can attack far away."
+	},
+	
+	{
+		"character": "bunny",
+		"text": "Finally, the units with a + are medics.  They don't do much damage, but they can heal your troops."
+	}
+	
+]

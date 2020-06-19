@@ -1,0 +1,32 @@
+[
+	{
+		"character": "dog",
+		"text": "Alright General, I'm your commandog for this revolution."
+	},
+	
+	{
+		"character": "dog",
+		"text": "First things first, there are a couple of the Nightmare's troops on the ground in front of ours."
+	},
+	
+	{
+		"character": "dog",
+		"text": "Click on one of the blue units to select it.  The blue circle shows how far it can move."
+	},
+	
+	{
+		"character": "dog",
+		"text": "The red circle shows how far it can attack."
+	},
+	
+	{
+		"character": "dog",
+		"text": "Click a red enemy unit while one of yours is selected to attack it.  If it's in range, then boom!"
+	},
+	
+	{
+		"character": "dog",
+		"text": "Now please eliminate the two units before us."
+	}
+	
+]

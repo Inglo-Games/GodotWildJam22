@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/battle_map/battle_map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/units/unit_infantry.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/units/enemy_infantry.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/battle_map/tutorial_01.gd" type="Script" id=4]
+
+[node name="map" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+
+[node name="unit" parent="player_units" index="0" instance=ExtResource( 2 )]
+margin_left = 6992.0
+margin_top = 8768.0
+margin_right = 6992.0
+margin_bottom = 8768.0
+
+[node name="unit2" parent="player_units" index="1" instance=ExtResource( 2 )]
+margin_left = 7888.0
+margin_top = 8640.0
+margin_right = 7888.0
+margin_bottom = 8640.0
+
+[node name="unit3" parent="player_units" index="2" instance=ExtResource( 2 )]
+margin_left = 8640.0
+margin_top = 8768.0
+margin_right = 8640.0
+margin_bottom = 8768.0
+
+[node name="unit" parent="enemy_units" index="0" instance=ExtResource( 3 )]
+margin_left = 5456.0
+margin_top = 4576.0
+margin_right = 5456.0
+margin_bottom = 4576.0
+
+[node name="unit2" parent="enemy_units" index="1" instance=ExtResource( 3 )]
+margin_left = 4880.0
+margin_top = 4304.0
+margin_right = 4880.0
+margin_bottom = 4304.0
+
+[node name="cam" parent="." index="4"]
+position = Vector2( 7357.08, 7770.8 )
+zoom = Vector2( 2.5, 2.5 )
