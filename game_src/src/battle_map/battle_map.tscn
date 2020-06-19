@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/battle_map/battle_map.gd" type="Script" id=1]
 [ext_resource path="res://src/units/enemy_armored.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/img/attack_range_marker.png" type="Texture" id=6]
 [ext_resource path="res://assets/img/map_background.jpg" type="Texture" id=7]
 [ext_resource path="res://assets/battle_ui.theme" type="Theme" id=8]
+[ext_resource path="res://src/dialog/dialog.tscn" type="PackedScene" id=9]
 
 [node name="map" type="Control"]
 margin_left = -2078.7
@@ -141,4 +142,7 @@ margin_bottom = 49.0
 focus_mode = 0
 enabled_focus_mode = 0
 text = "PAUSE"
+
+[node name="dialog" parent="ui_layer" instance=ExtResource( 9 )]
+visible = false
 [connection signal="button_up" from="ui_layer/vbox/end_turn_btn" to="." method="_on_end_turn_btn_up"]

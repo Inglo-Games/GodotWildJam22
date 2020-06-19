@@ -4,7 +4,7 @@ onready var portrait = $portrait
 onready var name_label = $name_panel/Label
 onready var text_label = $text_panel/Label
 
-var scene_dict : Dictionary = {}
+var scene_array : Array = []
 var current_line : int = -1
 
 var dog_portrait = preload("res://assets/img/dog.png")
@@ -14,7 +14,7 @@ var nightmare_portrait = preload("res://assets/img/dog.png")
 
 
 func _gui_input(event):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and Input.is_mouse_button_pressed(BUTTON_LEFT):
 		advance_dialogue()
 
 
@@ -26,7 +26,8 @@ func load_script_file(filepath):
 		file.open(filepath, 1)
 		var parsed_json = JSON.parse(file.get_as_text())
 		if parsed_json.error == OK:
-			scene_dict = parsed_json.result
+			scene_array = parsed_json.result
+			advance_dialogue()
 		else:
 			print("Error: malformed JSON in %s" % filepath)
 	else:
@@ -39,26 +40,26 @@ func advance_dialogue():
 	current_line += 1
 	
 	# If no more lines, remove this dialog window
-	if current_line + 1 > len(scene_dict):
+	if current_line + 1 > len(scene_array):
 		visible = false
 		queue_free()
 	
 	# Otherwise update the dialog text and portrait
 	else:
 		visible = true
-		text_label.text = scene_dict[current_line]["text"]
-		match scene_dict[current_line]["character"]:
+		text_label.text = scene_array[current_line]["text"]
+		match scene_array[current_line]["character"]:
 			"dog":
 				name_label.text = "Spot"
-				portrait = dog_portrait
+				portrait.texture = dog_portrait
 			"fish":
 				name_label.text = "Goldie"
-				portrait = fish_portrait
+				portrait.texture = fish_portrait
 			"bunny":
 				name_label.text = "Harry"
-				portrait = bunny_portrait
+				portrait.texture = bunny_portrait
 			"nightmare":
 				name_label.text = "Nightmare"
-				portrait = nightmare_portrait
+				portrait.texture = nightmare_portrait
 			_:
 				print("Error: bad character string")

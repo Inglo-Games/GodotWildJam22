@@ -17,12 +17,15 @@ func _ready():
 	for unit in $enemy_units.get_children():
 		unit.connect("unit_selected", self, "_on_enemy_selected")
 	$bg.connect("gui_input", self, "map_input")
+	
+	$ui_layer/dialog.load_script_file("res://src/dialogues/intro.txt")
+
 
 # Get input on battle map
 func map_input(event):
 	
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-
+	
 		# Handle unit movement
 		if player_turn and selected_unit != null:
 			

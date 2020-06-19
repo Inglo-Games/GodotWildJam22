@@ -1,0 +1,31 @@
+[
+	{
+		"character": "nightmare",
+		"text": "This space... This Dreamland..."
+	},
+	
+	{
+		"character": "nightmare",
+		"text": "You shall live here in fear for eternity..."
+	},
+	
+	{
+		"character": "dog",
+		"text": "That's enough"
+	},
+	
+	{
+		"character": "bunny",
+		"text": "Leave this child alone, or else"
+	},
+	
+	{
+		"character": "nightmare",
+		"text": "You are powerless here.  Nothing shall end my reign."
+	},
+	
+	{
+		"character": "dog",
+		"text": "We'll see about that.  It's time for a revolution of the imagination."
+	}
+]
