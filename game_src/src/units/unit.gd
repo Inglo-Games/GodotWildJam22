@@ -2,6 +2,7 @@ extends Control
 class_name Unit
 
 signal unit_selected
+signal unit_killed
 
 # Unit stats
 var is_enemy : bool = false
@@ -21,10 +22,6 @@ func _gui_input(event):
 		emit_signal("unit_selected", self)
 
 
-func _on_unit_destroyed():
-	queue_free()
-
-
 # Deal damage to another unit
 func attack_unit(enemy):
 	if can_attack:
@@ -39,7 +36,7 @@ func damage_received(damage):
 	health -= damage / armor
 	$vbox/health_bar.value = health
 	if health <= 0:
-		_on_unit_destroyed()
+		emit_signal("unit_killed", self)
 
 
 # Called after a player moves this unit
