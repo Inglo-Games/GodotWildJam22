@@ -1,8 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/battle_map/battle_map.gd" type="Script" id=1]
-[ext_resource path="res://src/units/enemy_armored.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/units/unit_armored.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/battle_map/camera_controller.gd" type="Script" id=4]
 [ext_resource path="res://assets/img/move_range_marker.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/attack_range_marker.png" type="Texture" id=6]
@@ -11,10 +9,8 @@
 [ext_resource path="res://src/dialog/dialog.tscn" type="PackedScene" id=9]
 
 [node name="map" type="Control"]
-margin_left = -2078.7
-margin_top = 322.904
-margin_right = 7921.3
-margin_bottom = 10322.9
+margin_right = 10000.0
+margin_bottom = 10000.0
 theme = ExtResource( 8 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -63,24 +59,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="unit" parent="player_units" instance=ExtResource( 3 )]
-margin_left = 7446.67
-margin_top = 2162.09
-margin_right = 7446.67
-margin_bottom = 2162.09
-
-[node name="unit2" parent="player_units" instance=ExtResource( 3 )]
-margin_left = 7277.56
-margin_top = 3070.87
-margin_right = 7277.56
-margin_bottom = 3070.87
-
-[node name="unit3" parent="player_units" instance=ExtResource( 3 )]
-margin_left = 6521.89
-margin_top = 2693.53
-margin_right = 6521.89
-margin_bottom = 2693.53
-
 [node name="enemy_units" type="Control" parent="."]
 margin_left = 2805.8
 margin_top = 2534.27
@@ -91,20 +69,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="unit" parent="enemy_units" instance=ExtResource( 2 )]
-margin_left = 3867.96
-margin_top = -1610.84
-margin_right = 3867.96
-margin_bottom = -1610.84
-
-[node name="unit2" parent="enemy_units" instance=ExtResource( 2 )]
-margin_left = 4563.14
-margin_top = -1924.29
-margin_right = 4563.14
-margin_bottom = -1924.29
-
 [node name="cam" type="Camera2D" parent="."]
-position = Vector2( 7166.19, 2340.72 )
 skew = 4.37114e-08
 current = true
 zoom = Vector2( 2, 2 )

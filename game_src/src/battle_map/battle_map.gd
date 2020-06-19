@@ -1,6 +1,9 @@
+class_name BattleMap
 extends Control
 
 const ai_action_wait_time : float = 0.3		# Time to wait between AI moves
+
+var next_level : String = ""
 
 var player_turn : bool = true
 var selected_unit : Unit = null
@@ -14,8 +17,11 @@ func _ready():
 	# Connect units to relevant callback functions
 	for unit in $player_units.get_children():
 		unit.connect("unit_selected", self, "_on_unit_selected")
+		unit.connect("unit_killed", self, "_on_unit_killed")
 	for unit in $enemy_units.get_children():
 		unit.connect("unit_selected", self, "_on_enemy_selected")
+		unit.connect("unit_killed", self, "_on_unit_killed")
+	
 	$bg.connect("gui_input", self, "map_input")
 	
 	$ui_layer/dialog.load_script_file("res://src/dialogues/intro.txt")
@@ -69,6 +75,17 @@ func _on_enemy_selected(unit):
 	draw_range_markers()
 
 
+# Check to see if there are no enemy or player units left
+func _on_unit_killed(unit):
+	
+	unit.queue_free()
+	
+	if $player_units.get_child_count() == 1 and not unit.is_enemy: 
+		player_lost()
+	elif $enemy_units.get_child_count() == 1 and unit.is_enemy:
+		player_won()
+
+
 # Reset player's unit moves and trigger AI turn
 func _on_end_turn_btn_up():
 	
@@ -82,7 +99,6 @@ func _on_end_turn_btn_up():
 	for unit in $player_units.get_children():
 		unit.reset_move_and_attack()
 	player_turn = true
-
 
 
 # Size and place markers showing player the move and attack ranges for the
@@ -104,29 +120,70 @@ func exec_ai_turn():
 	for unit in $enemy_units.get_children():
 		
 		# Determine weakest enemy unit
-		var weakest = $player_units.get_child(0)
-		for target in $player_units.get_children():
-			if target.health < weakest.health:
-				weakest = target
-		
-		var unit_pos = unit.rect_global_position
-		var weakest_pos = weakest.rect_global_position
-		var dist = weakest_pos.distance_to(unit_pos)
-		
-		# Case 1: weakest enemy already in range
-		if dist <= unit.attack_range:
-			unit.attack_unit(weakest)
-			yield(get_tree().create_timer(ai_action_wait_time), "timeout")
-		
-		# Case 2: weakest enemy within range after one move
-		elif dist <= (unit.attack_range + unit.move_range):
-			unit.rect_global_position += unit_pos.direction_to(weakest_pos) * unit.move_range
-			yield(get_tree().create_timer(ai_action_wait_time), "timeout")
-			unit.attack_unit(weakest)
-			yield(get_tree().create_timer(ai_action_wait_time), "timeout")
-		
-		# TODO: Add more AI
+		if $player_units.get_child_count() > 0:
+			var weakest = $player_units.get_child(0)
+			for target in $player_units.get_children():
+				if target.health < weakest.health:
+					weakest = target
+			
+			var unit_pos = unit.rect_global_position
+			var weakest_pos = weakest.rect_global_position
+			var dist = weakest_pos.distance_to(unit_pos)
+			
+			# Case 1: weakest enemy already in range
+			if dist <= unit.attack_range:
+				unit.attack_unit(weakest)
+				yield(get_tree().create_timer(ai_action_wait_time), "timeout")
+			
+			# Case 2: weakest enemy within range after one move
+			elif dist <= (unit.attack_range + unit.move_range):
+				unit.rect_global_position += unit_pos.direction_to(weakest_pos) * unit.move_range
+				yield(get_tree().create_timer(ai_action_wait_time), "timeout")
+				unit.attack_unit(weakest)
+				yield(get_tree().create_timer(ai_action_wait_time), "timeout")
+			
+			# TODO: Add more AI
 	
 	# Reset move and attack flags for next round
 	for unit in $enemy_units.get_children():
 		unit.reset_move_and_attack()
+
+
+# Show a popup that advances to next level
+func player_won():
+	
+	# Create a popup and display it
+	var popup = AcceptDialog.new()
+	popup.dialog_text = "Battle won!"
+	popup.dialog_autowrap = true
+	popup.theme = load("res://assets/battle_ui.theme")
+	popup.connect("confirmed", self, "load_next_level")
+	
+	$ui_layer.add_child(popup)
+	popup.popup_centered_minsize(Vector2(400, 300))
+
+
+# Show a popup message that returns to main menu
+func player_lost():
+	
+	# Create a popup and display it
+	var popup = AcceptDialog.new()
+	popup.dialog_text = "You have lost..."
+	popup.dialog_autowrap = true
+	popup.theme = load("res://assets/battle_ui.theme")
+	popup.connect("confirmed", self, "return_to_menu")
+	
+	$ui_layer.add_child(popup)
+	popup.popup_centered_minsize(Vector2(400, 300))
+
+
+func load_next_level():
+	var level_file = File.new()
+	if level_file.file_exists(next_level):
+		get_tree().change_scene(next_level)
+	else:
+		get_tree().change_scene("res://src/menus/main_menu.tscn")
+
+
+func return_to_menu():
+	get_tree().change_scene("res://src/menus/main_menu.tscn")
