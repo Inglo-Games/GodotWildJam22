@@ -10,7 +10,7 @@ var current_line : int = -1
 var dog_portrait = preload("res://assets/img/dog.png")
 var bunny_portrait = preload("res://assets/img/bunny.png")
 var fish_portrait = preload("res://assets/img/fish.png")
-var nightmare_portrait = preload("res://assets/img/dog.png")
+var nightmare_portrait = preload("res://assets/img/nightmare.png")
 
 
 func _gui_input(event):
