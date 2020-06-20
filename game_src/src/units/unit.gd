@@ -18,7 +18,7 @@ var can_move : bool = true
 
 
 func _gui_input(event):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+	if event is InputEventMouseButton and Input.is_mouse_button_pressed(BUTTON_LEFT):
 		emit_signal("unit_selected", self)
 
 
