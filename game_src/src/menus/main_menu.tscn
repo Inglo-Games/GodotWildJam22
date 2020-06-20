@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/menus/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/battle_ui.theme" type="Theme" id=2]
 
 [node name="menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -24,33 +26,37 @@ __meta__ = {
 }
 
 [node name="camp_btn" type="Button" parent="vbox"]
-margin_top = 274.0
+margin_top = 226.0
 margin_right = 1192.0
-margin_bottom = 294.0
-text = "Campaign"
+margin_bottom = 265.0
+text = "New Campaign"
 
-[node name="single_btn" type="Button" parent="vbox"]
-margin_top = 358.0
+[node name="load_btn" type="Button" parent="vbox"]
+margin_top = 329.0
 margin_right = 1192.0
-margin_bottom = 378.0
-text = "Single Battle"
+margin_bottom = 368.0
+disabled = true
+text = "Load Campaign"
 
 [node name="opts_btn" type="Button" parent="vbox"]
-margin_top = 442.0
+margin_top = 432.0
 margin_right = 1192.0
-margin_bottom = 462.0
+margin_bottom = 471.0
 text = "Options"
 
 [node name="cred_btn" type="Button" parent="vbox"]
-margin_top = 526.0
+margin_top = 535.0
 margin_right = 1192.0
-margin_bottom = 546.0
+margin_bottom = 574.0
 text = "Credits"
 
 [node name="quit_btn" type="Button" parent="vbox"]
-margin_top = 610.0
+margin_top = 638.0
 margin_right = 1192.0
-margin_bottom = 630.0
+margin_bottom = 677.0
 text = "Quit Game"
 [connection signal="button_up" from="vbox/camp_btn" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="vbox/load_btn" to="." method="_on_load_btn_up"]
+[connection signal="button_up" from="vbox/opts_btn" to="." method="_on_opts_btn_up"]
+[connection signal="button_up" from="vbox/cred_btn" to="." method="_on_cred_btn_up"]
 [connection signal="button_up" from="vbox/quit_btn" to="." method="_on_quit_button_up"]
