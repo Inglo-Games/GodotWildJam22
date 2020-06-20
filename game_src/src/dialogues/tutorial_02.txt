@@ -16,7 +16,7 @@
 	
 	{
 		"character": "fish",
-		"text": "The units with an oval are tanks, like me!  We don't move as fast but we pack a bigger punch."
+		"text": "The units with an oval are tanks, like me!  We pack a big punch but have a limited range."
 	},
 	
 	{
@@ -27,6 +27,11 @@
 	{
 		"character": "bunny",
 		"text": "Finally, the units with a + are medics.  They don't do much damage, but they can heal your troops."
-	}
+	},
+	
+	{
+		"character": "bunny",
+		"text": "Do this by clicking a damaged unit in the Medic's range while the Medic is selected."
+	},
 	
 ]

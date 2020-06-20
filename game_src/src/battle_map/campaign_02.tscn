@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/battle_map/battle_map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/units/unit_infantry.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/units/enemy_artillery.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/units/unit_armored.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/units/enemy_armored.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/units/unit_medic.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/battle_map/campaign_02.gd" type="Script" id=7]
+
+[node name="map" instance=ExtResource( 1 )]
+script = ExtResource( 7 )
+
+[node name="unit" parent="player_units" index="0" instance=ExtResource( 4 )]
+margin_left = 7489.83
+margin_top = 2899.2
+margin_right = 7489.83
+margin_bottom = 2899.2
+
+[node name="unit2" parent="player_units" index="1" instance=ExtResource( 2 )]
+margin_left = 6996.45
+margin_top = 3102.4
+margin_right = 6996.45
+margin_bottom = 3102.4
+
+[node name="unit3" parent="player_units" index="2" instance=ExtResource( 2 )]
+margin_left = 7951.49
+margin_top = 3088.15
+margin_right = 7951.49
+margin_bottom = 3088.15
+
+[node name="unit4" parent="player_units" index="3" instance=ExtResource( 4 )]
+margin_left = 7482.7
+margin_top = 3255.56
+margin_right = 7482.7
+margin_bottom = 3255.56
+
+[node name="unit5" parent="player_units" index="4" instance=ExtResource( 6 )]
+margin_left = 7495.53
+margin_top = 3738.72
+margin_right = 7495.53
+margin_bottom = 3738.72
+
+[node name="enemy_units" parent="." index="3"]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="unit" parent="enemy_units" index="0" instance=ExtResource( 3 )]
+margin_left = 8527.18
+margin_top = 1454.76
+margin_right = 8527.18
+margin_bottom = 1454.76
+
+[node name="unit2" parent="enemy_units" index="1" instance=ExtResource( 3 )]
+margin_left = 8134.18
+margin_top = 1217.75
+margin_right = 8134.18
+margin_bottom = 1217.75
+
+[node name="unit3" parent="enemy_units" index="2" instance=ExtResource( 5 )]
+margin_left = 8149.08
+margin_top = 1737.57
+margin_right = 8149.08
+margin_bottom = 1737.57
+
+[node name="unit4" parent="enemy_units" index="3" instance=ExtResource( 5 )]
+margin_left = 7755.47
+margin_top = 1463.69
+margin_right = 7755.47
+margin_bottom = 1463.69
+
+[node name="cam" parent="." index="4"]
+position = Vector2( 7490.57, 2873.42 )

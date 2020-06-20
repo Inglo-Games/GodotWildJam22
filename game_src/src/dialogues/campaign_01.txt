@@ -1,0 +1,11 @@
+[
+	{
+		"character": "dog",
+		"text": "There's a group of enemy tanks in the southeast forest."
+	},
+	
+	{
+		"character": "dog",
+		"text": "Now we're here, the Nightmare ends tonight!"
+	},
+]

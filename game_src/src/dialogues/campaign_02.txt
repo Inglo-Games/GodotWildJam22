@@ -1,0 +1,11 @@
+[
+	{
+		"character": "dog",
+		"text": "The have artillery in the mountains!"
+	},
+	
+	{
+		"character": "fish",
+		"text": "Let me handle this."
+	},
+]

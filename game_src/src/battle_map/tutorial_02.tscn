@@ -1,7 +1,65 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/battle_map/battle_map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/battle_map/tutorial_02.gd" type="Script" id=2]
+[ext_resource path="res://src/units/unit_armored.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/units/unit_medic.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/units/unit_infantry.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/units/unit_artillery.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/units/enemy_infantry.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/units/enemy_armored.tscn" type="PackedScene" id=8]
 
 [node name="map" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="unit" parent="player_units" index="0" instance=ExtResource( 6 )]
+margin_left = 545.423
+margin_top = 6706.74
+margin_right = 545.423
+margin_bottom = 6706.74
+
+[node name="unit2" parent="player_units" index="1" instance=ExtResource( 5 )]
+margin_left = 1977.5
+margin_top = 7035.71
+margin_right = 1977.5
+margin_bottom = 7035.71
+
+[node name="unit3" parent="player_units" index="2" instance=ExtResource( 5 )]
+margin_left = 1642.52
+margin_top = 6672.22
+margin_right = 1642.52
+margin_bottom = 6672.22
+
+[node name="unit4" parent="player_units" index="3" instance=ExtResource( 3 )]
+margin_left = 1375.55
+margin_top = 6300.44
+margin_right = 1375.55
+margin_bottom = 6300.44
+
+[node name="unit5" parent="player_units" index="4" instance=ExtResource( 4 )]
+margin_left = 1097.59
+margin_top = 7027.41
+margin_right = 1097.59
+margin_bottom = 7027.41
+
+[node name="unit" parent="enemy_units" index="0" instance=ExtResource( 7 )]
+margin_left = 641.447
+margin_top = 3606.36
+margin_right = 641.447
+margin_bottom = 3606.36
+
+[node name="unit2" parent="enemy_units" index="1" instance=ExtResource( 7 )]
+margin_left = 748.355
+margin_top = 4254.93
+margin_right = 748.355
+margin_bottom = 4254.93
+
+[node name="unit3" parent="enemy_units" index="2" instance=ExtResource( 8 )]
+margin_left = 1197.37
+margin_top = 3905.7
+margin_right = 1197.37
+margin_bottom = 3905.7
+
+[node name="cam" parent="." index="4"]
+position = Vector2( 2309.54, 6595.7 )
+zoom = Vector2( 2.2, 2.2 )
