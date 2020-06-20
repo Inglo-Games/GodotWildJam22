@@ -158,28 +158,20 @@ func exec_ai_turn():
 func player_won():
 	
 	# Create a popup and display it
-	var popup = AcceptDialog.new()
-	popup.dialog_text = "Battle won!"
-	popup.dialog_autowrap = true
-	popup.theme = load("res://assets/battle_ui.theme")
-	popup.connect("confirmed", self, "load_next_level")
-	
+	var popup = $ui_layer/win_popup
+	popup.get_node("vbox/btn").connect("pressed", self, "load_next_level")
 	$ui_layer.add_child(popup)
-	popup.popup_centered_minsize(Vector2(400, 300))
+	popup.popup_centered()
 
 
 # Show a popup message that returns to main menu
 func player_lost():
 	
 	# Create a popup and display it
-	var popup = AcceptDialog.new()
-	popup.dialog_text = "You have lost..."
-	popup.dialog_autowrap = true
-	popup.theme = load("res://assets/battle_ui.theme")
-	popup.connect("confirmed", self, "return_to_menu")
-	
+	var popup = $ui_layer/loss_popup
+	popup.get_node("vbox/btn").connect("pressed", self, "return_to_menu")
 	$ui_layer.add_child(popup)
-	popup.popup_centered_minsize(Vector2(400, 300))
+	popup.popup_centered()
 
 
 func load_next_level():
