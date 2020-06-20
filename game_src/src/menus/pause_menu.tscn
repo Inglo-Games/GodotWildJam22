@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/battle_ui.theme" type="Theme" id=1]
+[ext_resource path="res://src/menus/pause_menu.gd" type="Script" id=2]
+
+[node name="popup" type="PopupDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1520.0
+margin_bottom = -830.0
+rect_min_size = Vector2( 400, 250 )
+theme = ExtResource( 1 )
+popup_exclusive = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="VBoxContainer" parent="."]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+custom_constants/separation = 18
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="resume_btn" type="Button" parent="vbox"]
+margin_top = 52.0
+margin_right = 320.0
+margin_bottom = 91.0
+text = "Resume Game"
+
+[node name="quit_btn" type="Button" parent="vbox"]
+margin_top = 109.0
+margin_right = 320.0
+margin_bottom = 148.0
+text = "Quit to Main Menu"
+[connection signal="button_up" from="vbox/resume_btn" to="." method="_on_resume_btn_up"]
+[connection signal="button_up" from="vbox/quit_btn" to="." method="_on_quit_btn_up"]

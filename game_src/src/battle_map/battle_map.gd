@@ -101,6 +101,11 @@ func _on_end_turn_btn_up():
 	player_turn = true
 
 
+# Show pause menu
+func _on_pause_btn_up():
+	$ui_layer/popup.popup_centered()
+
+
 # Size and place markers showing player the move and attack ranges for the
 # selected unit
 func draw_range_markers():
@@ -187,3 +192,5 @@ func load_next_level():
 
 func return_to_menu():
 	get_tree().change_scene("res://src/menus/main_menu.tscn")
+
+

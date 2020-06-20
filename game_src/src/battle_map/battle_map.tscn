@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/battle_map/battle_map.gd" type="Script" id=1]
+[ext_resource path="res://src/menus/pause_menu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/battle_map/camera_controller.gd" type="Script" id=4]
 [ext_resource path="res://assets/img/move_range_marker.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/attack_range_marker.png" type="Texture" id=6]
@@ -110,4 +111,7 @@ text = "PAUSE"
 
 [node name="dialog" parent="ui_layer" instance=ExtResource( 9 )]
 visible = false
+
+[node name="popup" parent="ui_layer" instance=ExtResource( 2 )]
 [connection signal="button_up" from="ui_layer/vbox/end_turn_btn" to="." method="_on_end_turn_btn_up"]
+[connection signal="button_up" from="ui_layer/vbox/pause_btn" to="." method="_on_pause_btn_up"]
