@@ -1,0 +1,52 @@
+[
+	{
+		"character": "nightmare",
+		"text": "No!  This cannot be!"
+	},
+	
+	{
+		"character": "nightmare",
+		"text": "Nothing can overpower my might!  Nobody can overcome my reign!"
+	},
+	
+	{
+		"character": "dog",
+		"text": "That's where you're wrong."
+	},
+	
+	{
+		"character": "dog",
+		"text": "A revolution is exactly as strong as the people who believe in it."
+	},
+	
+	{
+		"character": "bunny",
+		"text": "You thought you found a weak heart to terrorize but boy were you wrong!"
+	},
+	
+	{
+		"character": "fish",
+		"text": "Now leave, and don't come back!"
+	},
+	
+	{
+		"character": "dog",
+		"text": "..."
+	},
+	
+	{
+		"character": "dog",
+		"text": "That's it.  He's gone."
+	},
+	
+	{
+		"character": "fish",
+		"text": "I don't think you need us anymore."
+	},
+	
+	{
+		"character": "bunny",
+		"text": "But if you do, we're always one thought away!"
+	}
+	
+]
