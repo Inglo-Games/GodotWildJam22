@@ -1,0 +1,174 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/battle_map/battle_map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/battle_map/campaign_05.gd" type="Script" id=2]
+[ext_resource path="res://src/units/enemy_artillery.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/units/unit_medic.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/units/unit_artillery.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/units/enemy_infantry.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/units/unit_armored.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/units/unit_infantry.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/units/enemy_armored.tscn" type="PackedScene" id=9]
+
+[node name="map" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="unit" parent="player_units" index="0" instance=ExtResource( 7 )]
+margin_left = 4403.58
+margin_top = 3776.0
+margin_right = 4403.58
+margin_bottom = 3776.0
+
+[node name="unit2" parent="player_units" index="1" instance=ExtResource( 7 )]
+margin_left = 4011.58
+margin_top = 3391.13
+margin_right = 4011.58
+margin_bottom = 3391.13
+
+[node name="unit3" parent="player_units" index="2" instance=ExtResource( 7 )]
+margin_left = 3733.62
+margin_top = 2906.48
+margin_right = 3733.62
+margin_bottom = 2906.48
+
+[node name="unit4" parent="player_units" index="3" instance=ExtResource( 7 )]
+margin_left = 3484.17
+margin_top = 2450.34
+margin_right = 3484.17
+margin_bottom = 2450.34
+
+[node name="unit5" parent="player_units" index="4" instance=ExtResource( 4 )]
+margin_left = 2692.12
+margin_top = 2443.85
+margin_right = 2692.12
+margin_bottom = 2443.85
+
+[node name="unit6" parent="player_units" index="5" instance=ExtResource( 4 )]
+margin_left = 4206.97
+margin_top = 4240.81
+margin_right = 4206.97
+margin_bottom = 4240.81
+
+[node name="unit7" parent="player_units" index="6" instance=ExtResource( 8 )]
+margin_left = 4097.0
+margin_top = 1853.79
+margin_right = 4097.0
+margin_bottom = 1853.79
+
+[node name="unit8" parent="player_units" index="7" instance=ExtResource( 8 )]
+margin_left = 4272.36
+margin_top = 2391.19
+margin_right = 4272.36
+margin_bottom = 2391.19
+
+[node name="unit9" parent="player_units" index="8" instance=ExtResource( 8 )]
+margin_left = 4509.95
+margin_top = 2872.02
+margin_right = 4509.95
+margin_bottom = 2872.02
+
+[node name="unit10" parent="player_units" index="9" instance=ExtResource( 8 )]
+margin_left = 4917.24
+margin_top = 3330.23
+margin_right = 4917.24
+margin_bottom = 3330.23
+
+[node name="unit11" parent="player_units" index="10" instance=ExtResource( 8 )]
+margin_left = 5358.47
+margin_top = 3703.58
+margin_right = 5358.47
+margin_bottom = 3703.58
+
+[node name="unit12" parent="player_units" index="11" instance=ExtResource( 5 )]
+margin_left = 3320.25
+margin_top = 3322.6
+margin_right = 3320.25
+margin_bottom = 3322.6
+
+[node name="unit" parent="enemy_units" index="0" instance=ExtResource( 3 )]
+margin_left = 8375.13
+margin_top = 1587.4
+margin_right = 8375.13
+margin_bottom = 1587.4
+
+[node name="unit2" parent="enemy_units" index="1" instance=ExtResource( 3 )]
+margin_left = 8711.66
+margin_top = 1892.18
+margin_right = 8711.66
+margin_bottom = 1892.18
+
+[node name="unit3" parent="enemy_units" index="2" instance=ExtResource( 3 )]
+margin_left = 8381.48
+margin_top = 2133.47
+margin_right = 8381.48
+margin_bottom = 2133.47
+
+[node name="unit4" parent="enemy_units" index="3" instance=ExtResource( 9 )]
+margin_left = 7575.08
+margin_top = 1720.74
+margin_right = 7575.08
+margin_bottom = 1720.74
+
+[node name="unit5" parent="enemy_units" index="4" instance=ExtResource( 9 )]
+margin_left = 7892.56
+margin_top = 2171.57
+margin_right = 7892.56
+margin_bottom = 2171.57
+
+[node name="unit6" parent="enemy_units" index="5" instance=ExtResource( 9 )]
+margin_left = 7435.39
+margin_top = 2235.06
+margin_right = 7435.39
+margin_bottom = 2235.06
+
+[node name="unit7" parent="enemy_units" index="6" instance=ExtResource( 9 )]
+margin_left = 8718.01
+margin_top = 3073.21
+margin_right = 8718.01
+margin_bottom = 3073.21
+
+[node name="unit8" parent="enemy_units" index="7" instance=ExtResource( 9 )]
+margin_left = 8324.33
+margin_top = 3358.94
+margin_right = 8324.33
+margin_bottom = 3358.94
+
+[node name="unit9" parent="enemy_units" index="8" instance=ExtResource( 6 )]
+margin_left = 6668.98
+margin_top = 1900.92
+margin_right = 6668.98
+margin_bottom = 1900.92
+
+[node name="unit10" parent="enemy_units" index="9" instance=ExtResource( 6 )]
+margin_left = 6963.46
+margin_top = 2406.84
+margin_right = 6963.46
+margin_bottom = 2406.84
+
+[node name="unit11" parent="enemy_units" index="10" instance=ExtResource( 6 )]
+margin_left = 6661.42
+margin_top = 2859.9
+margin_right = 6661.42
+margin_bottom = 2859.9
+
+[node name="unit12" parent="enemy_units" index="11" instance=ExtResource( 6 )]
+margin_left = 7061.63
+margin_top = 3237.45
+margin_right = 7061.63
+margin_bottom = 3237.45
+
+[node name="unit13" parent="enemy_units" index="12" instance=ExtResource( 6 )]
+margin_left = 6714.28
+margin_top = 3630.1
+margin_right = 6714.28
+margin_bottom = 3630.1
+
+[node name="unit14" parent="enemy_units" index="13" instance=ExtResource( 6 )]
+margin_left = 7235.3
+margin_top = 3894.38
+margin_right = 7235.3
+margin_bottom = 3894.38
+
+[node name="cam" parent="." index="4"]
+position = Vector2( 5718, 2902.61 )
+zoom = Vector2( 3.4, 3.4 )

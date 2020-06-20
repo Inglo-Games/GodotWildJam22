@@ -1,0 +1,16 @@
+[
+	{
+		"character": "dog",
+		"text": "This is it General.  The final push."
+	},
+	
+	{
+		"character": "fish",
+		"text": "Let's kick that nasty Nightmare right out of here!"
+	},
+	
+	{
+		"character": "nightmare",
+		"text": "Try it if you dare."
+	}
+]
