@@ -63,10 +63,6 @@ __meta__ = {
 }
 
 [node name="enemy_units" type="Control" parent="."]
-margin_left = 2805.8
-margin_top = 2534.27
-margin_right = 2805.8
-margin_bottom = 2534.27
 mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false

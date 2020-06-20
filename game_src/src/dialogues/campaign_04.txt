@@ -1,0 +1,16 @@
+[
+	{
+		"character": "dog",
+		"text": "Goldie, what's our status?"
+	},
+	
+	{
+		"character": "fish",
+		"text": "Outgunned, outmanned, outnumbered, and outplanned."
+	},
+	
+	{
+		"character": "dog",
+		"text": "Well then, let's get to work."
+	}
+]

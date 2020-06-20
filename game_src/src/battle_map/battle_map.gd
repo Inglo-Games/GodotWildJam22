@@ -160,7 +160,6 @@ func player_won():
 	# Create a popup and display it
 	var popup = $ui_layer/win_popup
 	popup.get_node("vbox/btn").connect("pressed", self, "load_next_level")
-	$ui_layer.add_child(popup)
 	popup.popup_centered()
 
 
@@ -170,7 +169,6 @@ func player_lost():
 	# Create a popup and display it
 	var popup = $ui_layer/loss_popup
 	popup.get_node("vbox/btn").connect("pressed", self, "return_to_menu")
-	$ui_layer.add_child(popup)
 	popup.popup_centered()
 
 

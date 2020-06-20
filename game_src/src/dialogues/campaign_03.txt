@@ -1,0 +1,21 @@
+[
+	{
+		"character": "dog",
+		"text": "Remember General, this is your dream."
+	},
+	
+	{
+		"character": "dog",
+		"text": "The more you believe in yourself, the more powerful we all become."
+	},
+	
+	{
+		"character": "bunny",
+		"text": "Yeah!  That Nightmare doesn't stand a chance against our revolt!"
+	},
+	
+	{
+		"character": "nightmare",
+		"text": "You talk too much.  Let me show you what true fear is."
+	}
+]
