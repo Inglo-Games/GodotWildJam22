@@ -1,5 +1,7 @@
 extends Control
 
+signal dialogue_finished
+
 onready var portrait = $portrait
 onready var name_label = $name_panel/Label
 onready var text_label = $text_panel/Label
@@ -44,6 +46,7 @@ func advance_dialogue():
 	# If no more lines, remove this dialog window
 	if current_line + 1 > len(scene_array):
 		visible = false
+		emit_signal("dialogue_finished")
 		queue_free()
 	
 	# Otherwise update the dialog text and portrait
