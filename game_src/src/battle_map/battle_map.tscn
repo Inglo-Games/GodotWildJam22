@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/battle_map/battle_map.gd" type="Script" id=1]
 [ext_resource path="res://src/menus/pause_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/menus/win_popup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/battle_map/camera_controller.gd" type="Script" id=4]
 [ext_resource path="res://assets/img/move_range_marker.png" type="Texture" id=5]
 [ext_resource path="res://assets/img/attack_range_marker.png" type="Texture" id=6]
 [ext_resource path="res://assets/img/map_background.jpg" type="Texture" id=7]
 [ext_resource path="res://assets/battle_ui.theme" type="Theme" id=8]
 [ext_resource path="res://src/dialog/dialog.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/menus/loss_popup.tscn" type="PackedScene" id=10]
 
 [node name="map" type="Control"]
 margin_right = 10000.0
@@ -112,6 +114,12 @@ text = "PAUSE"
 [node name="dialog" parent="ui_layer" instance=ExtResource( 9 )]
 visible = false
 
-[node name="popup" parent="ui_layer" instance=ExtResource( 2 )]
+[node name="pause_popup" parent="ui_layer" instance=ExtResource( 2 )]
+
+[node name="win_popup" parent="ui_layer" instance=ExtResource( 3 )]
+visible = false
+
+[node name="loss_popup" parent="ui_layer" instance=ExtResource( 10 )]
+visible = false
 [connection signal="button_up" from="ui_layer/vbox/end_turn_btn" to="." method="_on_end_turn_btn_up"]
 [connection signal="button_up" from="ui_layer/vbox/pause_btn" to="." method="_on_pause_btn_up"]
