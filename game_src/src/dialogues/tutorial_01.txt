@@ -26,6 +26,11 @@
 	
 	{
 		"character": "dog",
+		"text": "You can use WASD to move your camera and use Q and E to zoom in and out."
+	},
+	
+	{
+		"character": "dog",
 		"text": "Now please eliminate the two units before us."
 	}
 	
