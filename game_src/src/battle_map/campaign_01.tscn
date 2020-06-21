@@ -34,12 +34,6 @@ margin_top = 5176.0
 margin_right = 4172.0
 margin_bottom = 5176.0
 
-[node name="enemy_units" parent="." index="3"]
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
-
 [node name="unit" parent="enemy_units" index="0" instance=ExtResource( 2 )]
 margin_left = 6946.77
 margin_top = 5890.93
