@@ -11,6 +11,9 @@ var selected_unit : Unit = null
 onready var move_marker = $range_markers/move_range
 onready var attack_marker = $range_markers/attack_range
 
+onready var enemy_units = $enemy_units
+onready var player_units = $player_units
+
 
 func _ready():
 	
@@ -72,8 +75,6 @@ func _on_enemy_selected(unit):
 		var dist = selected_unit.rect_global_position.distance_to(unit.rect_global_position)
 		if dist <= selected_unit.attack_range and selected_unit.can_attack: 
 			selected_unit.attack_unit(unit)
-	
-	draw_range_markers()
 
 
 # Check to see if there are no enemy or player units left
@@ -122,37 +123,70 @@ func draw_range_markers():
 
 func exec_ai_turn():
 	
+	# Calculate center point of each army
+	var enemy_center = average_pos(enemy_units.get_children())
+	var player_center = average_pos(player_units.get_children())
+	
 	# Process move for each enemy unit
-	for unit in $enemy_units.get_children():
+	for unit in enemy_units.get_children():
+	
+		var unit_pos = unit.rect_global_position
 		
-		# Determine weakest enemy unit
-		if $player_units.get_child_count() > 0:
-			var weakest = $player_units.get_child(0)
-			for target in $player_units.get_children():
-				if target.health < weakest.health:
-					weakest = target
+		if player_units.get_child_count() > 0:
+					
+			# Move toward center of player army, plus a small randomized amount
+			# to help prevent a stack
+			var loc = unit.rect_global_position.direction_to(player_center) * unit.move_range + \
+						Vector2(randf() * 300.0, 0).rotated(randf() * 2 * PI)
+			unit.rect_global_position += loc
 			
-			var unit_pos = unit.rect_global_position
-			var weakest_pos = weakest.rect_global_position
-			var dist = weakest_pos.distance_to(unit_pos)
+			# Determine which units are in range, are weakened, and are infantry
+			var player_units_in_range = []
+			var weak_units_in_range = []
+			var infantry_in_range = []
 			
-			# Case 1: weakest enemy already in range
-			if dist <= unit.attack_range:
-				unit.attack_unit(weakest)
-				yield(get_tree().create_timer(ai_action_wait_time), "timeout")
+			for target in player_units.get_children():
+				if target.rect_global_position.distance_to(unit_pos) <= unit.attack_range:
+					player_units_in_range.append(target)
+					if target.health < 100.0:
+						weak_units_in_range.append(target)
+					if target is Infantry:
+						infantry_in_range.append(target)
 			
-			# Case 2: weakest enemy within range after one move
-			elif dist <= (unit.attack_range + unit.move_range):
-				unit.rect_global_position += unit_pos.direction_to(weakest_pos) * unit.move_range
-				yield(get_tree().create_timer(ai_action_wait_time), "timeout")
-				unit.attack_unit(weakest)
-				yield(get_tree().create_timer(ai_action_wait_time), "timeout")
-			
-			# TODO: Add more AI
+			# If units in range...
+			if len(player_units_in_range) > 0:
+				
+				# Prioritize attacking weakest ones first
+				if len(weak_units_in_range) > 0:
+					var weakest = weak_units_in_range[0]
+					for target in weak_units_in_range:
+						if target.health < weakest.health:
+							weakest = target
+					unit.attack_unit(weakest)
+				
+				# Next prioritize infantry units
+				elif len(infantry_in_range) > 0:
+					unit.attack_unit(infantry_in_range[0])
+				
+				# Otherwise attack anything
+				else:
+					unit.attack_unit(player_units_in_range[0])
 	
 	# Reset move and attack flags for next round
-	for unit in $enemy_units.get_children():
+	for unit in enemy_units.get_children():
 		unit.reset_move_and_attack()
+
+
+# Find the center point of a group of units
+func average_pos(units):
+	var avg_x := 0.0
+	var avg_y := 0.0
+	for unit in units:
+		avg_x += unit.rect_global_position.x
+		avg_y += unit.rect_global_position.y
+	avg_x /= float(len(units))
+	avg_y /= float(len(units))
+	return Vector2(avg_x, avg_y)
 
 
 # Show a popup that advances to next level
