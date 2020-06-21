@@ -77,9 +77,9 @@ texture = ExtResource( 8 )
 stretch_mode = 4
 
 [node name="vbox" type="VBoxContainer" parent="."]
-anchor_left = 0.2
+anchor_left = 0.35
 anchor_top = 0.4
-anchor_right = 0.8
+anchor_right = 0.65
 anchor_bottom = 0.9
 custom_constants/separation = 64
 alignment = 1
@@ -88,35 +88,35 @@ __meta__ = {
 }
 
 [node name="camp_btn" type="Button" parent="vbox"]
-margin_top = 74.0
-margin_right = 1152.0
-margin_bottom = 124.0
+margin_top = 86.0
+margin_right = 576.0
+margin_bottom = 130.0
 text = "New Campaign"
 
 [node name="load_btn" type="Button" parent="vbox"]
-margin_top = 188.0
-margin_right = 1152.0
+margin_top = 194.0
+margin_right = 576.0
 margin_bottom = 238.0
 disabled = true
 text = "Load Campaign"
 
 [node name="opts_btn" type="Button" parent="vbox"]
 visible = false
-margin_top = 427.0
-margin_right = 1192.0
-margin_bottom = 477.0
+margin_top = 245.0
+margin_right = 1152.0
+margin_bottom = 295.0
 text = "Options"
 
 [node name="cred_btn" type="Button" parent="vbox"]
 margin_top = 302.0
-margin_right = 1152.0
-margin_bottom = 352.0
+margin_right = 576.0
+margin_bottom = 346.0
 text = "Credits"
 
 [node name="quit_btn" type="Button" parent="vbox"]
-margin_top = 416.0
-margin_right = 1152.0
-margin_bottom = 466.0
+margin_top = 410.0
+margin_right = 576.0
+margin_bottom = 454.0
 text = "Quit Game"
 
 [node name="back_btn" type="Button" parent="."]
