@@ -27,16 +27,16 @@ margin_right = 8640.0
 margin_bottom = 8768.0
 
 [node name="unit" parent="enemy_units" index="0" instance=ExtResource( 3 )]
-margin_left = 5456.0
-margin_top = 4576.0
-margin_right = 5456.0
-margin_bottom = 4576.0
+margin_left = 8335.38
+margin_top = 6728.41
+margin_right = 8335.38
+margin_bottom = 6728.41
 
 [node name="unit2" parent="enemy_units" index="1" instance=ExtResource( 3 )]
-margin_left = 4880.0
-margin_top = 4304.0
-margin_right = 4880.0
-margin_bottom = 4304.0
+margin_left = 7759.38
+margin_top = 6456.41
+margin_right = 7759.38
+margin_bottom = 6456.41
 
 [node name="cam" parent="." index="4"]
 position = Vector2( 7357.08, 7770.8 )
