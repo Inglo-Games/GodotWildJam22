@@ -55,6 +55,8 @@ func _on_unit_selected(unit):
 		# Case 1: User is trying to heal unit with medic
 		if selected_unit is Medic and dist <= selected_unit.attack_range and selected_unit.can_attack:
 			selected_unit.can_attack = false
+			selected_unit.check_move_and_attack()
+			selected_unit.get_node("heal_sound").play()
 			attack_marker.visible = false
 			unit.health = 100.0
 			unit.get_node("vbox/health_bar").value = 100.0

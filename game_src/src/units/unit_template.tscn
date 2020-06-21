@@ -43,3 +43,7 @@ value = 100.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="move_sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="attack_sound" type="AudioStreamPlayer2D" parent="."]

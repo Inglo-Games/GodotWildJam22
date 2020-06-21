@@ -27,6 +27,7 @@ func attack_unit(enemy):
 	if can_attack:
 		var health_scaling = max(health / 100.0, 0.2)
 		enemy.damage_received(attack_dmg * health_scaling)
+		$attack_sound.play()
 		can_attack = false
 		check_move_and_attack()
 
@@ -41,6 +42,7 @@ func damage_received(damage):
 
 # Called after a player moves this unit
 func unit_moved():
+	$move_sound.play()
 	can_move = false
 	check_move_and_attack()
 
