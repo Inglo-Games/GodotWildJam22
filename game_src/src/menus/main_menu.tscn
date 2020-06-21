@@ -17,8 +17,6 @@ anchor_left = 0.2
 anchor_top = 0.1
 anchor_right = 0.8
 anchor_bottom = 0.9
-margin_right = 40.0
-margin_bottom = 40.0
 custom_constants/separation = 64
 alignment = 1
 __meta__ = {
@@ -26,37 +24,70 @@ __meta__ = {
 }
 
 [node name="camp_btn" type="Button" parent="vbox"]
-margin_top = 226.0
-margin_right = 1192.0
-margin_bottom = 265.0
+margin_top = 236.0
+margin_right = 1152.0
+margin_bottom = 286.0
 text = "New Campaign"
 
 [node name="load_btn" type="Button" parent="vbox"]
-margin_top = 329.0
-margin_right = 1192.0
-margin_bottom = 368.0
+margin_top = 350.0
+margin_right = 1152.0
+margin_bottom = 400.0
 disabled = true
 text = "Load Campaign"
 
 [node name="opts_btn" type="Button" parent="vbox"]
-margin_top = 432.0
+visible = false
+margin_top = 427.0
 margin_right = 1192.0
-margin_bottom = 471.0
+margin_bottom = 477.0
 text = "Options"
 
 [node name="cred_btn" type="Button" parent="vbox"]
-margin_top = 535.0
-margin_right = 1192.0
-margin_bottom = 574.0
+margin_top = 464.0
+margin_right = 1152.0
+margin_bottom = 514.0
 text = "Credits"
 
 [node name="quit_btn" type="Button" parent="vbox"]
-margin_top = 638.0
-margin_right = 1192.0
-margin_bottom = 677.0
+margin_top = 578.0
+margin_right = 1152.0
+margin_bottom = 628.0
 text = "Quit Game"
+
+[node name="back_btn" type="Button" parent="."]
+visible = false
+margin_left = 24.0
+margin_top = 24.0
+rect_min_size = Vector2( 120, 60 )
+text = "BACK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="creds_panel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+
+[node name="Label" type="Label" parent="creds_panel"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+text = "Game by Inglo Games
+
+Whatever It Takes font by Brittney Murphy Design
+
+Sound effects from the Sonniss library"
+align = 1
+valign = 1
+autowrap = true
 [connection signal="button_up" from="vbox/camp_btn" to="." method="_on_start_button_up"]
 [connection signal="button_up" from="vbox/load_btn" to="." method="_on_load_btn_up"]
 [connection signal="button_up" from="vbox/opts_btn" to="." method="_on_opts_btn_up"]
 [connection signal="button_up" from="vbox/cred_btn" to="." method="_on_cred_btn_up"]
 [connection signal="button_up" from="vbox/quit_btn" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="back_btn" to="." method="_on_back_btn_up"]

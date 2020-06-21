@@ -23,8 +23,14 @@ func _on_opts_btn_up():
 
 
 func _on_cred_btn_up():
-	pass # Replace with function body.
+	$back_btn.visible = true
+	$creds_panel.visible = true
 
 
 func _on_quit_button_up():
 	get_tree().quit()
+
+
+func _on_back_btn_up():
+	$back_btn.visible = false
+	$creds_panel.visible = false
