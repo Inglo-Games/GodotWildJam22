@@ -7,8 +7,8 @@ signal unit_killed
 # Unit stats
 var is_enemy : bool = false
 var move_range : float = 500.0
-var attack_range : float = 300.0
-var attack_dmg : float = 50.0
+var attack_range : float = 800.0
+var attack_dmg : float = 60.0
 var armor : float = 1.0
 
 # Instace vars

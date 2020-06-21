@@ -14,13 +14,11 @@ margin_right = 201.122
 margin_bottom = 137.378
 
 [node name="unit_icon" parent="vbox" index="0"]
-margin_left = -1.0
-margin_right = 399.0
+margin_left = 0.0
+margin_right = 400.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 400, 250 )
 texture = ExtResource( 1 )
-expand = true
-stretch_mode = 1
 
 [node name="health_bar" parent="vbox" index="1"]
 margin_left = 100.0
