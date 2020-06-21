@@ -54,6 +54,7 @@ func _on_unit_selected(unit):
 			selected_unit.can_attack = false
 			attack_marker.visible = false
 			unit.health = 100.0
+			unit.get_node("vbox/health_bar").value = 100.0
 		
 		# Case 2: User is selecting unit
 		else:
