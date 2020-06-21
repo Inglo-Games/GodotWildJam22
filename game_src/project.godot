@@ -40,11 +40,6 @@ _global_script_classes=[ {
 "path": "res://src/units/enemy_infantry.gd"
 }, {
 "base": "Unit",
-"class": "EnemyMedic",
-"language": "GDScript",
-"path": "res://src/units/enemy_medic.gd"
-}, {
-"base": "Unit",
 "class": "Infantry",
 "language": "GDScript",
 "path": "res://src/units/unit_infantry.gd"
@@ -66,7 +61,6 @@ _global_script_class_icons={
 "EnemyArmored": "",
 "EnemyArtillery": "",
 "EnemyInfantry": "",
-"EnemyMedic": "",
 "Infantry": "",
 "Medic": "",
 "Unit": ""
