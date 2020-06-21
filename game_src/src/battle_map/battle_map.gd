@@ -28,6 +28,8 @@ func _ready():
 	$bg.connect("gui_input", self, "map_input")
 	
 	$ui_layer/dialog.load_script_file("res://src/dialogues/intro.txt")
+	
+	BGM.play_audio()
 
 
 # Get input on battle map

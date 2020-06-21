@@ -5,6 +5,8 @@ var tween = Tween.new()
 
 func _ready():
 	
+	BGM.play_audio()
+	
 	# Fade out intro quote
 	add_child(tween)
 	tween.interpolate_property($quote_bg, "modulate:a", 1.0, 0.0, 0.8, Tween.TRANS_LINEAR)

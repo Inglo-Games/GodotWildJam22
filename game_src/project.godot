@@ -68,11 +68,15 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GWJ22"
+config/name="The Dreamland Revolution"
 run/main_scene="res://src/menus/main_menu.tscn"
 boot_splash/image="res://assets/img/splash.png"
 config/icon="res://icon.png"
 run/save_mission="none"
+
+[autoload]
+
+BGM="*res://src/audio/bgm.gd"
 
 [display]
 
