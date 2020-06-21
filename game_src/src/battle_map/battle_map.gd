@@ -104,7 +104,7 @@ func _on_end_turn_btn_up():
 
 # Show pause menu
 func _on_pause_btn_up():
-	$ui_layer/popup.popup_centered()
+	$ui_layer/pause_popup.popup_centered()
 
 
 # Size and place markers showing player the move and attack ranges for the
